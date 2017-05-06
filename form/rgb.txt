@@ -1,4 +1,0 @@
-rgba(55,148,110,0.9) (52,177,140,0.9)
-rgba(38,128,101,0.9) (52,177,140,0.9)
-rgba(38,128,101,0.9)
-http://bootsnipp.com/snippets/featured/dynamic-form-fields-add-amp-remove-bs3

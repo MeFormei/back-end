@@ -1,0 +1,12 @@
+<?php
+
+	echo "testando 123";
+
+	$nome = $_POST['nome'];
+	$frase = $_POST['frase'];
+	$enfase = $_POST['enfase'];
+	$turma = $_POST['turma'];
+	$foto = $_POST['foto'];
+
+	header("localhost:3000/aluno/get/".$nome."/".$frase."/".$enfase."/".$turma."/".$foto);
+?>
