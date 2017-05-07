@@ -1,37 +1,44 @@
 var models  = require('../models');
 var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 var router  = express.Router();
+
 
 router.get('/cad', function(req, res) {
   res.render('form.ejs');
 });
 
-/*router.post('/submit_new', function(req, res, next) {
+router.post('/submit_new', function(req, res) {
 	
 	var nome = req.body.nome;
 	var frase = req.body.frase;
 	var enfase = req.body.enfase;
 	var turma = req.body.turma;
 	var foto = req.body.foto;
-	
+    
 	models.aluno.create({nome, frase, enfase, turma, foto}).
 	then(function()
 	{
+        console.log(req.body);
 		res.send(nome, frase, enfase, turma, foto);
 	});
 	
-});*/
+});
 
 
+/*
 router.post('/submit_new', function(req, res, next) {
   models.aluno.create({nome: req.body.nome, frase : req.body.frase, enfase : req.body.enfase, turma : req.body.turma, foto : req.body.foto}).
   then(function()
   {
       res.send(req.body.nome, req.body.frase, req.body.enfase, req.body.turma, req.body.foto);
-	  res.redirect('/');
+	  //res.redirect('/');
 	  //res.redirect('/get' + nome + '/' + frase + '/' + enfase + '/' + turma + '/' + foto);
   }); 
-});
+});*/
 
 
 
@@ -53,7 +60,7 @@ router.get('/:nome', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-  models.aluno.findAll({attributes: ['nome' ,'frase', 'enfase', 'turma', 'foto']}).
+  models.aluno.findAll({attributes: ['nome' , 'frase', 'turma', 'foto']}).
   then(function(aluno)
   {
       res.send(aluno);  
