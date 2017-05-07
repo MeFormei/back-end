@@ -8,7 +8,7 @@ var router  = express.Router();
 
 
 router.get('/cad', function(req, res) {
-  res.render('form.ejs');
+  res.render('formAlunos.ejs');
 });
 
 router.post('/submit_new', function(req, res) {
@@ -29,21 +29,7 @@ router.post('/submit_new', function(req, res) {
 });
 
 
-/*
-router.post('/submit_new', function(req, res, next) {
-  models.aluno.create({nome: req.body.nome, frase : req.body.frase, enfase : req.body.enfase, turma : req.body.turma, foto : req.body.foto}).
-  then(function()
-  {
-      res.send(req.body.nome, req.body.frase, req.body.enfase, req.body.turma, req.body.foto);
-	  //res.redirect('/');
-	  //res.redirect('/get' + nome + '/' + frase + '/' + enfase + '/' + turma + '/' + foto);
-  }); 
-});*/
-
-
-
-
-router.get('/get/:nome/:frase/:enfase/:turma/:foto', function(req, res) { // para testar
+router.get('/get/:nome/:frase/:enfase/:turma/:foto', function(req, res) {
   models.aluno.create({ nome: req.params.nome, frase: req.params.frase, enfase: req.params.enfase, turma: req.params.turma, foto: req.params.foto}).
   then(function()
   {
