@@ -58,6 +58,7 @@ router.get('/', function(req, res) {
   models.turma.findAll().
   then(function(turma)
   {
+      res.setHeader('Access-Control-Allow-Origin','*');
       res.send(turma);  
   });
 });
