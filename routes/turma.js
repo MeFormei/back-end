@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var multer  = require('multer');
+var md5 = require('md5');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 var router  = express.Router();
@@ -14,8 +15,11 @@ var storage = multer.diskStorage({
     cb(null, '../public/img')
   },
   filename: function (req, file, cb) {
-      cb(null, file.originalname);
-      foto = "http://localhost:3000/img/" + file.originalname;  
+      var name = file.originalname;
+      var ext = name.slice(name.lastIndexOf('.'), name.length); 
+      var hash = md5(name + Date.now());
+      cb(null, hash + ext);
+      foto = "http://localhost:3000/img/" + hash + ext;  
   }
 });
 
