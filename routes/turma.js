@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var multer  = require('multer');
+var md5 = require('md5');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 var router  = express.Router();
@@ -14,18 +15,25 @@ var storage = multer.diskStorage({
     cb(null, '../public/img')
   },
   filename: function (req, file, cb) {
-      cb(null, file.originalname);
-      foto = "http://localhost:3000/img/" + file.originalname;  
+      var name = file.originalname;
+      var ext = name.slice(name.lastIndexOf('.'), name.length); 
+      var hash = md5(name + Date.now());
+      cb(null, hash + ext);
+      foto = "http://localhost:3000/img/" + hash + ext;  
   }
 });
 
 var upload = multer( { storage: storage } );
 
-router.get('/cad', function(req, res) {
+
+//renderiza o formulario de entrada
+router.get('/nova', function(req, res) {
   res.render('formTurmas.ejs');
 });
 
-router.post('/submit_new', upload.single('foto') ,function(req, res) {
+
+//metodo post (grava no DB usando o formulario de entrada)
+router.post('/nova', upload.single('foto') ,function(req, res) {
 	
 	var nome = req.body.nome;
 	var patrono = req.body.patrono;
@@ -46,18 +54,12 @@ router.post('/submit_new', upload.single('foto') ,function(req, res) {
 	
 });
 
-router.get('/get/:turma', function(req, res) {
-  models.turma.create({ nome: req.params.turma}).
-  then(function()
-  {
-      res.send(req.params.nome);  
-  });  
-});
-
-router.get('/', function(req, res) {
+//lista todas as turmas
+router.get('/api/v1/turmas', function(req, res) {
   models.turma.findAll().
   then(function(turma)
   {
+      res.setHeader('Access-Control-Allow-Origin','*');
       res.send(turma);  
   });
 });

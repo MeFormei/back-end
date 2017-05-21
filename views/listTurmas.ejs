@@ -1,0 +1,9 @@
+<html>
+<ul>
+<%for(var i=0; i < turmas.length; i++) {%>
+	<a href="/turma/cad/<%= turmas[i].id %>">
+	<h1><%= turmas[i].nome%></h1>
+    <li><img src="<%= turmas[i].foto %>"></li>
+<% } %>
+</ul>
+</html>
