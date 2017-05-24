@@ -43,9 +43,10 @@ router.post('/nova', upload.single('foto') ,function(req, res) {
 	var reitor = req.body.reitor;
 	var coordenador = req.body.coordenador;
 	var vice_coordenador = req.body.vice_coordenador;
+    var musica = req.body.musica;
     
     
-	models.turma.create({nome, patrono, paraninfo, curso, instituicao, reitor, coordenador, vice_coordenador, foto}).
+	models.turma.create({nome, patrono, paraninfo, curso, instituicao, reitor, coordenador, vice_coordenador, musica, foto}).
 	then(function()
 	{
         console.log(req.body);

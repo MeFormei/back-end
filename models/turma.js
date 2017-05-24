@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     reitor: { type: DataTypes.STRING},
     coordenador: { type: DataTypes.STRING},
     vice_cordenador: { type: DataTypes.STRING},
+    musica: { type: DataTypes.STRING},
     foto: { type: DataTypes.STRING}
   });
 
