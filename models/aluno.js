@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     nome: { type: DataTypes.STRING},
     frase: { type: DataTypes.STRING},
     enfase: { type: DataTypes.STRING},
-    turma: { type: DataTypes.STRING},
+    turma: { type: DataTypes.INTEGER},
     foto: { type: DataTypes.STRING}
   });
 

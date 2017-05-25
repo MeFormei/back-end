@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     instituicao: { type: DataTypes.STRING},
     reitor: { type: DataTypes.STRING},
     coordenador: { type: DataTypes.STRING},
-    vice_cordenador: { type: DataTypes.STRING},
+    vice_coordenador: { type: DataTypes.STRING},
+    musica: { type: DataTypes.STRING},
     foto: { type: DataTypes.STRING}
   });
 

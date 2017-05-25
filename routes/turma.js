@@ -25,11 +25,15 @@ var storage = multer.diskStorage({
 
 var upload = multer( { storage: storage } );
 
-router.get('/cad', function(req, res) {
+
+//renderiza o formulario de entrada
+router.get('/nova', function(req, res) {
   res.render('formTurmas.ejs');
 });
 
-router.post('/submit_new', upload.single('foto') ,function(req, res) {
+
+//metodo post (grava no DB usando o formulario de entrada)
+router.post('/nova', upload.single('foto') ,function(req, res) {
 	
 	var nome = req.body.nome;
 	var patrono = req.body.patrono;
@@ -39,9 +43,10 @@ router.post('/submit_new', upload.single('foto') ,function(req, res) {
 	var reitor = req.body.reitor;
 	var coordenador = req.body.coordenador;
 	var vice_coordenador = req.body.vice_coordenador;
+    var musica = req.body.musica;
     
     
-	models.turma.create({nome, patrono, paraninfo, curso, instituicao, reitor, coordenador, vice_coordenador, foto}).
+	models.turma.create({nome, patrono, paraninfo, curso, instituicao, reitor, coordenador, vice_coordenador, musica, foto}).
 	then(function()
 	{
         console.log(req.body);
@@ -50,15 +55,8 @@ router.post('/submit_new', upload.single('foto') ,function(req, res) {
 	
 });
 
-router.get('/get/:turma', function(req, res) {
-  models.turma.create({ nome: req.params.turma}).
-  then(function()
-  {
-      res.send(req.params.nome);  
-  });  
-});
-
-router.get('/', function(req, res) {
+//lista todas as turmas
+router.get('/api/v1/turmas', function(req, res) {
   models.turma.findAll().
   then(function(turma)
   {
