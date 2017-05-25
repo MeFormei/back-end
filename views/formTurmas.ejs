@@ -1,3 +1,4 @@
+<!--
 <html>
 	<head>
 		<title>Cadastro de turmas</title>
@@ -5,7 +6,7 @@
 
 	<body>
 		<form id="formulario" method="post" enctype="multipart/form-data" action="http://localhost:3000/turma/nova"><br>
-			<input type="text" name="nome" placeholder="nome" /> <br>
+			<input type="text" name="nome" placeholder="nome"/> <br>
 			<input type="text" name="patrono" placeholder="patrono" /> <br>
 			<input type="text" name="paraninfo" placeholder="paraninfo" /> <br>
 			<input type="text" name="curso" placeholder="curso" /> <br>
@@ -13,15 +14,76 @@
 			<input type="text" name="reitor" placeholder="reitor" /> <br>
 			<input type="text" name="coordenador" placeholder="coordenador" /> <br>
 			<input type="text" name="vice_coordenador" placeholder="vice-coordenador" /> <br>
-            Foto da turma : <input type="file" name="foto"/> <br>
-            Musica:
+			Foto da turma : <input type="file" name="foto"/> <br>
+			<input type="submit" placeholder="cadastrar" />
+		</form>	
+	</body>
+</html>
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Formulario</title>
+		<link href="/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="/css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+
+		<div class="resp"></div>
+
+		<div class="menu fa-lg">
+			<i class="fa fa-television fa-3x fa-stack-3x icone-btn" aria-hidden="true" style="color: rgba(99,155,255,0.9);"></i>
+			<i class="fa fa-graduation-cap fa-stack-2x icone-btn" aria-hidden="true" style="color: rgba(48,96,130,1); "></i>
+			<h1 style="color: rgba(48,96,130,1);">MeFormei</h4>
+			<h3 style="color: rgba(48,96,130,1);">Projeto de processos de software</h3>
+
+			<button class="btn btn-menu-turma btn-menu" type="button" >
+       			<i class="fa fa-graduation-cap icone-btn" aria-hidden="true" ></i>
+        	</button>
+        	<button class="btn btn-menu-alunos btn-menu" type="button">
+       			<i class="fa fa-group icone-btn" aria-hidden="true" ></i>
+        	</button>
+        	<button class="btn btn-menu-homenageados btn-menu" type="button">
+       			<i class="fa fa-university icone-btn" aria-hidden="true" ></i>
+        	</button>
+		</div>
+		
+		<form id="formulario" method="post" enctype="multipart/form-data" name="formulario" action="http://localhost:3000/turma/nova">
+		
+		<fieldset class="fs2">
+			<i class="fa fa-graduation-cap icone-turma" aria-hidden="true" ></i>
+			<h2>Cadastro da turma</h2>
+			<h3>Sobre a turma</h3>
+			<input type="text" name="nome" placeholder="&#xf19d; Nome da turma" required/>
+			<br>
+			Foto da turma: 
+			<input type="file" name="foto" placeholder="&#xf03e; Foto da turma" required/>
+			<input type="text" name="patrono" placeholder="&#xf007; Patrono" required/>
+			<input type="text" name="paraninfo" placeholder="&#xf007; Paraninfo" required/>
+			<h3>Sobre o curso</h3>
+			<input type="text" name="instituicao" placeholder="&#xf19c; Nome da instituicao" required/>
+			<input type="text" name="curso" placeholder="&#xf02d; Curso" required/>
+			<input type="text" name="reitor" placeholder="&#xf007; Reitor" required/>
+			<input type="text" name="coordenador" placeholder="&#xf007; Coordenador" required/>
+			<input type="text" name="vice_coordenador" placeholder="&#xf007; Vice-coordenador" required/>
+			<input type="submit" name="next" class="acao" value="enviar" />
+			Musica:
             <select name="musica">
               <option value="bomberman-64.mp3">Bomberman64</option>
               <option value="disney-theme.mp3">Disney Theme</option>
               <option value="final-fantasy-victory.mp3">Final Fantasy Victory</option>
               <option value="movie-theme-star-wars.mp3">Star Wars Theme</option>
-            </select> <br>			
-            <input type="submit" placeholder="cadastrar" />
-		</form>	
+            </select>
+		</fieldset>
+
+		</form>
+
+		<script src="/js/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript" src="/js/functions.js"></script>
 	</body>
 </html>

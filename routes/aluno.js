@@ -28,7 +28,11 @@ var upload = multer( { storage: storage } );
 
 //renderiza o formulario de entrada
 router.get('/nova', function(req, res) {
-  res.render('formAlunos.ejs');
+  models.turma.findAll().
+  then(function(turma)
+  { 
+      res.render("formAlunos.ejs", { turmas: turma}); 
+  });
 });
 
 
@@ -39,12 +43,11 @@ router.post('/nova', upload.single('foto') , function(req, res) {
 	var frase = req.body.frase;
 	var enfase = req.body.enfase;
 	var turma = req.body.turma;
-	var foto = req.body.foto;
     
 	models.aluno.create({nome, frase, enfase, turma, foto}).
 	then(function()
 	{
-        console.log(req.body);
+        console.log("deu certo");
 		res.send(nome, frase, enfase, turma, foto);
 	});
 });

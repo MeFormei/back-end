@@ -49,48 +49,81 @@ $(function(){
 		evento.preventDefault();
 
 	});
-/*
-	$(document).on('click', '.btn-add', function(e){
-		e.preventDefault();
 
-		var inputGroup = $('.input-group').first(),
-			newEntry = $(inputGroup.clone()).appendTo('.teste');
-		newEntry.find('input').val('');
-		inputGroup.find('.btn-add:not(:last)')
-            .removeClass('btn-add').addClass('btn-remove')
-            .html('<i class="fa fa-times icone-btn" aria-hidden="true" ></i>');
-
-
-        $(this).removeClass('btn-add').addClass('btn-remove');
-
-	}).on('click', '.btn-remove', function(e)
-    {
-		$(this).parents('.inputGroup:first').remove();
-
-		e.preventDefault();
-		return false;
-	});
-*/
-
-$('.btn-add').on('click', function(){
-
-	addItem();
+$('.fs2').on('click', '.btn-add-aluno', function(){
+	addAlunoContent();
 });
 
-$('.teste').on('click', '.btn-remove', function(){
+$('.fs2').on('click', '.btn-remove', function(){
+	/*
 	$(this).closest('.input-group').remove();
+	*/
 });
 
-function addItem(){
-		var html = '<div class="input-group">';
-		html += '<input type="text" name="nome[]" placeholder="nome do aluno" />';
-		html += '	<input type="text" name="foto[]" placeholder="foto do aluno" />';
-		html += '	<input type="text" name="frase[]" placeholder="frase" />';
-		html += '	<button class="btn btn-remove" type="button">';
-        html += '    	<i class="fa fa-times icone-btn" aria-hidden="true" ></i>';
-        html += '	</button>';
+$('.fs2').on('click', '.btn-add-homenageado', function(){
+	addHomenageadoContent();
+});
+
+function addHomenageadoContent(){
+	/*
+	var html =	'<div class="input-group" style="margin: 10px 0 10px 0;">';
+		html +=	'<input type="text" name="nome[]" placeholder="&#xf007; Nome do homenageado" required/>';
+		html += '<input type="text" name="turmaName[]" placeholder="&#xf19d; Nome da turma" required/>';
+		html += '<input type="text" name="anoFromacao[]" placeholder="&#xf073; Nno que a turma se formou" required/>';
+		html += '<input type="text" name="curriculo[]" placeholder="&#xf2c3; Currículo lattes" required/>';
+		html +=	'<button class="btn btn-remove" type="button">';
+       	html +=		'<i class="fa fa-times icone-btn" aria-hidden="true" ></i>';
+        html +=	'</button>';
+        html += '</div>';
+
+	$('.pivotHomenageado').append(html);
+	*/
+}
+
+function addAlunoContent(){
+	/*
+		var html = '<div class="input-group" style="margin: 10px 0 10px 0;">';
+		html += '<input type="text" name="nome[]" placeholder="&#xf007; Nome do aluno" required/>';
+		html +=		'<br>';
+		html +=		'Foto do aluno:';
+		html +=		'<input type="file" name="foto[]" style="background: white" placeholder="&#xf1c5; Foto do aluno" required/>';
+		html += 	'<input type="text" name="frase[]" placeholder="&#xf27b; Frase" required/>';
+		html += 	'<input type="text" name="turmaName[]" placeholder="&#xf19d; Nome da turma" required/>';
+		html += 	'<input type="text" name="anoFromacao[]" placeholder="&#xf073; Ano que a turma se formou" required/>';
+		html += 	'<button class="btn btn-remove" type="button">';
+        html += 		'<i class="fa fa-times icone-btn" aria-hidden="true" ></i>';
+        html += 	'</button>';
 		html += '</div>';
 
-		$('.teste').append(html);
+		$('.pivotAluno').append(html);
+	*/
+
+	}
+
+$('.btn-menu-alunos').on('click', function(){
+	addAlunosForm();
+});
+
+function addAlunosForm(){
+
+		window.location.href = "";
+	}
+
+$('.btn-menu-homenageados').on('click', function(){
+	addHomenageadosForm();
+});
+
+function addHomenageadosForm(){
+
+		window.location.href = "";
+	}
+
+$('.btn-menu-turma').on('click', function(){
+	addTurmaForm();
+});
+
+function addTurmaForm(){
+
+		window.location.href = "";
 	}
 });

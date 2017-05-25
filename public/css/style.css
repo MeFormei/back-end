@@ -1,11 +1,15 @@
-*{margin: 0; padding: 0; border: 0;}
+*{margin: 0; padding: 0;}
 html{
 	height: 100%;
+	background: -webkit-linear-gradient(rgba(99,155,255,0.9), rgba(95,205,228,0.9));
+	background: -o-linear-gradient(rgba(99,155,255,0.9), rgba(95,205,228,0.9));
+	background: -moz-linear-gradient(rgba(99,155,255,0.9), rgba(95,205,228,0.9));
 	background: linear-gradient(rgba(99,155,255,0.9), rgba(95,205,228,0.9));
-
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
-.erros, .ok{
+.erros, .ok, .menu{
 	width: 390px;
 	padding: 5px;
 	background: rgba(255, 255, 255, 0.9);
@@ -38,7 +42,6 @@ body{
  	text-align: center;
  	position: relative;
 }
-
 #formulario h2, #formulario h3{
 	font:22px "Trebuchet MS", tahoma, arial;
 	color:rgba(48,96,130,0.9);
@@ -70,7 +73,7 @@ body{
 	display:none;
 }
 
-#formulario input, #formulario textarea, #formulario button{
+#formulario input, #formulario textarea, #formulario button, .menu button, #formulario select{
 	padding: 10px;
 	border: 1px solid rgba(38,128,101,0.9);
 	border-radius: 4px;
@@ -79,15 +82,16 @@ body{
 	outline: none;
 	box-sizing: border-box;
 	width: 100%;
-	font: 14px "Trebuchet MS", tahoma, arial;
+	font: 14px "Trebuchet MS", tahoma, arial, FontAwesome;
 	color: #090;
 	margin-bottom: 10px;
 }
 #formulario .input-group{
-	border: 1px solid rgba(38,128,101,0.9);
+	background: rgba(240,240,250,0.9);
+	border-bottom: 1px solid rgba(38,128,101,0.9);
 	border-radius: 4px;
 }
-#formulario .acao, #formulario .btn-add, #btn-remove{
+#formulario .acao, #formulario .btn-add, #formulario .btn-remove, .menu .btn-menu{
 	width: 100px;
 	background: #27ae60;
 	color: white;
@@ -100,63 +104,17 @@ body{
 	width: 100%;
 }
 #formulario .btn-remove{
-	background: #F00;
+	background:rgba(153,0,0,0.9);
+	border: 1px solid rgba(199,0,57,0.9);
 }
-#formulario .btn-remove:hover{background:#A00; cursor: pointer;}
+.menu .btn-menu{
+	background: rgba(255,255,255,0.9);
+	color: rgba(99,155,255,0.9);
+	margin: 5px 5px 5px 5px;
+}
+#formulario .btn-remove:hover{background: #F00; cursor: pointer;}
 #formulario .acao:hover, #formulario .btn-add:hover{background:#27ee60; cursor: pointer;}
-
-#formulario #progress{
-	margin-bottom: 30px;
-	overflow: hidden;
-
-	counter-reset: step;
-}
-
-#formulario #progress li{
-	list-style-type: none;
-	color: white;
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 10px;
-	float: left;
-	width: 33.33%;
-	position: relative;
-}
-
-#formulario #progress li:before{
-	content: counter(step);
-	counter-increment: step;
-	width: 20px;
-	display: block;
-	line-height: 20px;
-	background: white;
-	color: #333;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-
-	margin: 0 auto 10px auto;
-}
-
-#formulario #progress li:after{
-	content: '';
-	width: 100%;
-	background: white;
-	height: 2px;
-	position: absolute;
-	top: 9px;
-	left: -50%;
-	z-index: -1;
-}
-#formulario #progress li:first-child:after{
-	content: none;
-}
-
-#formulario #progress li.ativo:before, #formulario #progress li.ativo:after{
-	background: rgba(48,96,130,0.9);
-	color: white;
-	text-shadow: 0 1px 0;
-}
+.menu .btn-menu:hover{background:rgba(48,96,130,0.9); cursor: pointer; color: white;}
 
 #formulario .icone-turma, #formulario .icone-alunos, #formulario .icone-professores{
 	font-size: 32px;
