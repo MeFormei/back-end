@@ -131,3 +131,21 @@ function onListening() { /* ... */ }
 
 And finally you have to adjust the `config/config.json` to fit your environment.
 Once thats done, your database configuration is ready!
+
+
+## Documentação das URLS
+
+
+
+1. [meformei.ddns.net/api/v1/turmas](meformei.ddns.net/api/v1/turmas "Lista todas as turmas cadastradas no banco de dados(todas as informações da turma.")
+
+2. [meformei.ddns.net/api/v1/turmas/:id](meformei.ddns.net/api/v1/turmas/:id "Lista todas as informações de uma turma passadapelo parâmetro id.")
+
+3. [meformei.ddns.net/api/v1/turmas/:idturma/alunos](meformei.ddns.net/api/v1/turmas/:idturma/alunos "Lista todos os alunos que estão cadastrados na turma passada pelo parâmetro :idturma.")
+
+4. [meformei.ddns.net/api/v1/turmas/:idturma/alunos/:idaluno](meformei.ddns.net/api/v1/turmas/:idturma/alunos/:idaluno "Mostra todas as informações do aluno :idaluno que estão cadastrados na turma passada pelo parâmetro :idturma.")
+
+5. [meformei.ddns.net/turma/nova](meformei.ddns.net/turma/nova "Formulário de cadastro de turma.")
+
+6. [meformei.ddns.net/aluno/nova](meformei.ddns.net/aluno/nova "Formulário de cadastro de aluno.")
+Dica: cadastre primeiro a turma e depois os alunos para não perder tempo.
