@@ -10,7 +10,7 @@ RUN npm install
 
 # Bundle app source
 COPY . /usr/src/app
-RUN chmod +x docker/wait-for-it.sh
+RUN chmod +x deploy/wait-for-it.sh
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
