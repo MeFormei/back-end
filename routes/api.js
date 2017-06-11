@@ -12,7 +12,7 @@ var foto;
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '../uploads/img')
+    cb(null, '/usr/src/app/uploads/img')
   },
   filename: function (req, file, cb) {
       var name = file.originalname;
