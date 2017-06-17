@@ -12,14 +12,14 @@ var foto;
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '../public/img')
+    cb(null, '../uploads/img')
   },
   filename: function (req, file, cb) {
       var name = file.originalname;
       var ext = name.slice(name.lastIndexOf('.'), name.length); 
       var hash = md5(name + Date.now());
       cb(null, hash + ext);
-      foto = "http://localhost:3000/img/" + hash + ext;  
+      foto = "img/" + hash + ext;  
   }
 });
 
