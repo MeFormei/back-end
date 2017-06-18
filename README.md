@@ -147,5 +147,5 @@ Once thats done, your database configuration is ready!
 
 5. [meformei.ddns.net/turma/nova](meformei.ddns.net/turma/nova "Formulário de cadastro de turma.")
 
-6. [meformei.ddns.net/aluno/nova](meformei.ddns.net/aluno/nova "Formulário de cadastro de aluno.")
+6. [meformei.ddns.net/aluno/novo](meformei.ddns.net/aluno/novo "Formulário de cadastro de aluno.")
 Dica: cadastre primeiro a turma e depois os alunos para não perder tempo.
