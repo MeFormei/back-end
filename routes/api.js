@@ -27,7 +27,7 @@ var upload = multer( { storage: storage } );
 
 
 //renderiza o formulario de entrada do aluno
-router.get('/aluno/nova', function(req, res) {
+router.get('/aluno/novo', function(req, res) {
   models.turma.findAll().
   then(function(turma)
   { 
@@ -37,7 +37,7 @@ router.get('/aluno/nova', function(req, res) {
 
 
 //metodo post (grava no DB usando o formulario de entrada)
-router.post('/aluno/nova', upload.single('foto') , function(req, res) {
+router.post('/aluno/novo', upload.single('foto') , function(req, res) {
 	
 	var nome = req.body.nome;
 	var frase = req.body.frase;
